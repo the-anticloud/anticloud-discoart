@@ -1,0 +1,341 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "DISCOART",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ARTIST_TOOLS\\DISCOART\\UPSTREAM_CLONE",
+    "git": {
+      "head": "03946299dd2781215a01c690c86ccd13e0f65c80",
+      "url": "https://github.com/jina-ai/discoart",
+      "branch": "main",
+      "committed_at": "2023-05-16T11:48:00+02:00"
+    }
+  },
+  "metrics": {
+    "files_total": 67,
+    "source_files_scanned": 24,
+    "lines_of_code": 3011,
+    "languages": {
+      ".py": 21,
+      ".png": 15,
+      ".yml": 11,
+      "(none)": 4,
+      ".sh": 4,
+      ".md": 3,
+      ".gif": 3,
+      ".yaml": 1,
+      ".ipynb": 1,
+      ".in": 1,
+      ".svg": 1,
+      ".ejs": 1,
+      ".txt": 1
+    }
+  },
+  "licence": {
+    "spdx": "MIT",
+    "class": "A",
+    "source_file": "LICENSE",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 5,
+    "unique": 5,
+    "by_ecosystem": {
+      "pypi": 5
+    },
+    "list": [
+      {
+        "ecosystem": "pypi",
+        "name": "setuptools",
+        "version": ">=18.0",
+        "source_file": "setup.py",
+        "raw": "setuptools>=18.0"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "jina",
+        "version": ">=3.7.3",
+        "source_file": "setup.py",
+        "raw": "jina>=3.7.3"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "black",
+        "version": "==22.3.0",
+        "source_file": "setup.py",
+        "raw": "black==22.3.0"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "torch",
+        "version": "==1.9.0",
+        "source_file": "setup.py",
+        "raw": "torch==1.9.0"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "torchvision",
+        "version": "==0.10.0",
+        "source_file": "setup.py",
+        "raw": "torchvision==0.10.0"
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 11,
+    "files_with_findings": 8,
+    "severity": {
+      "high": 6,
+      "medium": 3,
+      "low": 2
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A03-Injection": {
+        "count": 6,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "setup.py",
+            "line": 17,
+            "cwe": "CWE-95",
+            "snippet": "exec(version_line)  # gives __version__"
+          },
+          {
+            "severity": "high",
+            "file": "discoart/api.py",
+            "line": 30,
+            "cwe": "CWE-502",
+            "snippet": "kwargs = yaml.load(args.input, Loader=Loader)"
+          },
+          {
+            "severity": "high",
+            "file": "discoart/config.py",
+            "line": 20,
+            "cwe": "CWE-502",
+            "snippet": "default_args = yaml.load(ymlfile, Loader=Loader)"
+          },
+          {
+            "severity": "high",
+            "file": "discoart/helper.py",
+            "line": 319,
+            "cwe": "CWE-95",
+            "snippet": "clip_models[k] = m.eval().requires_grad_(False)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/generate-docstring.py",
+            "line": 7,
+            "cwe": "CWE-502",
+            "snippet": "cfg = yaml.load(ymlfile, Loader=Loader)"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/release.sh",
+            "line": 82,
+            "cwe": "CWE-120",
+            "snippet": "NEXT_VER=$(echo $RELEASE_VER | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{$NF=sprintf(\"%0*d\", length($NF), ($NF+1)); print}')"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 0,
+        "findings": []
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "discoart/config.py",
+            "line": 154,
+            "cwe": "CWE-1188",
+            "snippet": "_non_default = True"
+          },
+          {
+            "severity": "medium",
+            "file": "discoart/runner.py",
+            "line": 489,
+            "cwe": "CWE-1188",
+            "snippet": "save_config_svg(args, svg_name, only_non_default=True)"
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "setup.py",
+            "line": 67,
+            "cwe": "CWE-1104",
+            "snippet": "'black==22.3.0',"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/black.sh",
+            "line": 2,
+            "cwe": "CWE-1104",
+            "snippet": "pip install black==22.3.0"
+          }
+        ]
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 0,
+        "findings": []
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "discoart/helper.py",
+            "line": 253,
+            "cwe": "CWE-918",
+            "snippet": "with urllib.request.urlopen(url) as source, open("
+          }
+        ]
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 0,
+    "files_with_findings": 0,
+    "severity": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:5a4959f2-ccc0-57a6-9bc4-03022e78deae",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T14:35:17Z",
+      "component": {
+        "type": "application",
+        "name": "DISCOART",
+        "version": "03946299dd27",
+        "bom-ref": "pkg:generic/anticloud/DISCOART@03946299dd27",
+        "purl": "pkg:generic/anticloud/DISCOART@03946299dd27",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "03946299dd2781215a01c690c86ccd13e0f65c80"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/jina-ai/discoart"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "setuptools",
+        "version": ">=18.0",
+        "purl": "pkg:pypi/setuptools@18.0",
+        "bom-ref": "pypi/setuptools@>=18.0"
+      },
+      {
+        "type": "library",
+        "name": "jina",
+        "version": ">=3.7.3",
+        "purl": "pkg:pypi/jina@3.7.3",
+        "bom-ref": "pypi/jina@>=3.7.3"
+      },
+      {
+        "type": "library",
+        "name": "black",
+        "version": "==22.3.0",
+        "purl": "pkg:pypi/black@22.3.0",
+        "bom-ref": "pypi/black@==22.3.0"
+      },
+      {
+        "type": "library",
+        "name": "torch",
+        "version": "==1.9.0",
+        "purl": "pkg:pypi/torch@1.9.0",
+        "bom-ref": "pypi/torch@==1.9.0"
+      },
+      {
+        "type": "library",
+        "name": "torchvision",
+        "version": "==0.10.0",
+        "purl": "pkg:pypi/torchvision@0.10.0",
+        "bom-ref": "pypi/torchvision@==0.10.0"
+      }
+    ]
+  },
+  "elapsed_seconds": 19.82
+}

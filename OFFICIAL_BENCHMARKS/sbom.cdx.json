@@ -1,0 +1,74 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:5a4959f2-ccc0-57a6-9bc4-03022e78deae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-06T07:21:58Z",
+    "component": {
+      "type": "application",
+      "name": "DISCOART",
+      "version": "03946299dd27",
+      "bom-ref": "pkg:generic/anticloud/DISCOART@03946299dd27",
+      "purl": "pkg:generic/anticloud/DISCOART@03946299dd27",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "03946299dd2781215a01c690c86ccd13e0f65c80"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/jina-ai/discoart"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "setuptools",
+      "version": ">=18.0",
+      "purl": "pkg:pypi/setuptools@18.0",
+      "bom-ref": "pypi/setuptools@>=18.0"
+    },
+    {
+      "type": "library",
+      "name": "jina",
+      "version": ">=3.7.3",
+      "purl": "pkg:pypi/jina@3.7.3",
+      "bom-ref": "pypi/jina@>=3.7.3"
+    },
+    {
+      "type": "library",
+      "name": "black",
+      "version": "==22.3.0",
+      "purl": "pkg:pypi/black@22.3.0",
+      "bom-ref": "pypi/black@==22.3.0"
+    },
+    {
+      "type": "library",
+      "name": "torch",
+      "version": "==1.9.0",
+      "purl": "pkg:pypi/torch@1.9.0",
+      "bom-ref": "pypi/torch@==1.9.0"
+    },
+    {
+      "type": "library",
+      "name": "torchvision",
+      "version": "==0.10.0",
+      "purl": "pkg:pypi/torchvision@0.10.0",
+      "bom-ref": "pypi/torchvision@==0.10.0"
+    }
+  ]
+}
